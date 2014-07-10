@@ -1,0 +1,21 @@
+{
+  "name": "codestuff",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "rSchlup",
+      "email": "russ93@fullsail.edu"
+    }
+  ],
+  "dependencies": {
+    "grunt-cli" : "*",
+    "grunt-sass" : "*",
+    "grunt-contrib-connect" : "*",
+    "grunt-contrib-watch" : "*"
+  },
+  "devDependencies": {
+    "mocha": "1.15.1",
+    "should": "2.1.1",
+    "supertest": "0.8.2"
+  }
+}
