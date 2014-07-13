@@ -1,0 +1,18 @@
+<li ng-repeat="file in files" ng-class='{"folder":"typeof file == "object"}'>
+    <a href='/docz/NbyO' ng-if="">
+        <p class='col-md-12 active'>Content</p>
+    </a>
+    <div ng-if='typeof file == "object"'>
+        {file.dirName}
+        <ul>
+            <li ng-repeat="f in file.files">
+                {{f}}
+            </li>
+        </ul>
+    </div>
+
+</li>
+<article ng-repeat="post in posts | filter:search">
+	<h3>{{post.Title}}</h3>
+	<p>{{post.Content}}</p>
+</article>

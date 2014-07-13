@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="day3app">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="css/main.css" rel='stylesheet' />
+	<script src="//localhost:35729/xlivereload.js"></script>
+
+	<!-- Angluar Stuff -->
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+
+	<!-- App stuff -->
+	<script src="js/app.js"></script>
+	<title>{{pageTitle}}</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#/">Home Page</a></li>
+			<li><a href="#/detail">Detail Page</a></li>
+		</ul>
+	</nav>
+	<section ng-view></seciton>
+</body>
+</html>
