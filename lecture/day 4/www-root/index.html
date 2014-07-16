@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="day4app">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="css/main.css" rel='stylesheet' />
+	<script src="//localhost:35729/xlivereload.js"></script>
+
+	<!-- bower:js -->
+	<script src="bower/angular/angular.js"></script>
+	<script src="bower/angular-route/angular-route.js"></script>
+	<script src="bower/firebase/firebase.js"></script>
+	<script src="bower/firebase-simple-login/firebase-simple-login.js"></script>
+	<script src="bower/angularfire/angularfire.js"></script>
+	<!-- endbower -->
+
+	<!-- App stuff -->
+	<script src="js/app.js"></script>
+	<title>{{pageTitle}}</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#/">Home Page</a></li>
+			<li><a href="#/detail">Detail Page</a></li>
+		</ul>
+	</nav>
+	<section ng-view class="col-md-offset-2 col-md-8"></seciton>
+</body>
+</html>
