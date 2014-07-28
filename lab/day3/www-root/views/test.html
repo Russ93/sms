@@ -1,0 +1,17 @@
+
+	<ul>
+		<li ng-repeat="folder in conn.folders" ng-click="folder.open = !folder.open; $event.stopPropagation();" class="folder">
+			{{folder.name}}
+			<ul ng-show="folder.open">
+				<li ng-repeat="folder1 in folder.folders" class="folder" ng-click="folder1.open = !folder1.open; $event.stopPropagation();">
+					{{folder1.name}}
+					<ul ng-show="folder1.open">
+						<li ng-repeat="folder2 in folder1.folders" class="folder">{{folder2.name}}</li>
+						<li ng-repeat="file2 in folder1.files">{{file2.name}}</li>
+					</ul>
+				</li>
+				<li ng-repeat="file1 in folder.files">{{file1.name}}</li>
+			</ul>
+		</li>
+		<li ng-repeat="file in conn.files">{{file.name}}</li>
+	</ul>

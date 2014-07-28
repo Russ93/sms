@@ -1,0 +1,12 @@
+<form class="col-md-6" ng-submit="saveComment()">
+	<label>Title:</label>
+	<input type="text" placeholer=="Title" ng-model="newComment.Title" class="form-control" />
+	<label>Content:</label>
+	<textarea class="form-control" ng-model="newComment.Content"></textarea>
+	<button class="btn btn-primary">Save</button>
+</form>
+
+<article ng-repeat="comment in comments">
+	<h3>{{comment.Title}}</h3>
+	<p>{{comment.Content}}</p>
+</article>

@@ -5,22 +5,29 @@
     <input type-"text" class="form-control" placeholder="file.js" ng-model="newFile"/>
 </form>
 <aside>
-	<button ng-click="new()" class="col-md-12">New File</button>
-	<ul>
-		<li ng-repeat="folder in conn.folders" ng-click="folder.open = !folder.open; $event.stopPropagation();" class="folder">
-			{{folder.name}}
-			<ul ng-show="folder.open">
-				<li ng-repeat="folder1 in folder.folders" class="folder" ng-click="folder1.open = !folder1.open; $event.stopPropagation();">
-					{{folder1.name}}
-					<ul ng-show="folder1.open">
-						<li ng-repeat="folder2 in folder1.folders" class="folder">{{folder2.name}}</li>
-						<li ng-repeat="file2 in folder1.files">{{file2.name}}</li>
-					</ul>
-				</li>
-				<li ng-repeat="file1 in folder.files">{{file1.name}}</li>
-			</ul>
+	<button ng-show="repo" ng-click="new()" class="col-md-12">New File</button>
+	<select class="form-control" ng-model="repo">
+        <option ng-repeat="ro in repos" value="{{$index}}">{{ro.name}}</option>
+    </select>
+    <!--
+      [TREE attribute]
+      angular-treeview: the treeview directive
+      tree-model : the tree model on $scope.
+      node-id : each node's id
+      node-label : each node's label
+      node-children: each node's children
+    -->
+<!--     <div
+      data-angular-treeview="true"
+      data-tree-model="roleList"
+      data-node-id="roleId"
+      data-node-label="roleName"
+      data-node-children="children" >
+    </div> -->
+    <ul>
+		<li ng-repeat="cont in repoContents" file="cont" repo="repos[repo].name" ng-click="openItem($event)" ng-class="{ folder: cont.type == 'dir' }">
+		
 		</li>
-		<li ng-repeat="file in conn.files">{{file.name}}</li>
 	</ul>
 </aside>
 <article class='app col-md-9'>
@@ -29,5 +36,5 @@
 			<li class="active col-md-1">App.js</li>
 		</ul>
 	</nav>
-	<textarea class='col-md-12'>Content</textarea>
+	<div class='col-md-12' id="firepad-container">Content</div>
 </article>

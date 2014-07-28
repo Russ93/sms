@@ -1,0 +1,735 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fls",
+				"false"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"an",
+				"angularGit"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lab/day3/sass/main.sass",
+			"settings":
+			{
+				"buffer_size": 3136,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lab/day3/www-root/index.html",
+			"settings":
+			{
+				"buffer_size": 2120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lab/day3/www-root/views/folders.html",
+			"settings":
+			{
+				"buffer_size": 165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lab/day3/www-root/views/user.html",
+			"settings":
+			{
+				"buffer_size": 1400,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 316.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 610.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/russellbenton/Git Hub/sms/lab/day3/coffee/part.coffee",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/coffee/app.coffee",
+		"/Users/russellbenton/Git Hub/sms/README.md",
+		"/Users/russellbenton/Git Hub/portlight_staging/node_search/app.js",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/app.py",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/basics.py",
+		"/Users/russellbenton/Git Hub/portlight_staging/.gitignore",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/skufinder.js",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/sass/main.sass",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/views/landing.html",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/views/folders.html",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/views/user.html",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/index.html",
+		"/Users/russellbenton/Git Hub/portlight_staging/work.sublime-project",
+		"/Users/russellbenton/Git Hub/sms/lecture/day 4/www-root/views/comments.html",
+		"/Users/russellbenton/Git Hub/sms/lecture/day 4/www-root/views/detail.html",
+		"/Users/russellbenton/Git Hub/sms/lecture/day 4/coffee/part.coffee",
+		"/Users/russellbenton/Git Hub/sms/lecture/day 4/coffee/app.coffee",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/views/test.html",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/views/side.html",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/www-root/js/app.js",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/SMS.sublime-project",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/coffee/main.coffee",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/views/head.tpl",
+		"/Users/russellbenton/Downloads/MyReport_.csv",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/public/js/j2c.js",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/coffee/export.coffee",
+		"/Users/russellbenton/Git Hub/portlight_staging/Gruntfile.coffee",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/coffee/skufinder.coffee",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/Gruntfile.coffee",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/wkdir/easysoap.js",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/sass/main.sass",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/views/display.tpl",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/python/sku.txt",
+		"/Users/russellbenton/Downloads/MyReport_Hello (1).csv",
+		"/Users/russellbenton/Downloads/InventoryExport_7-17-2014-23-0-58.txt",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/lib.py",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/python/sync.py",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/www/test.py",
+		"/Users/russellbenton/Downloads/nohup.out",
+		"/Users/russellbenton/Downloads/MyReport_Hello.csv",
+		"/Users/russellbenton/Git Hub/dpw/Final/final-practical/main.py",
+		"/Users/russellbenton/Git Hub/dpw/Final/final-practical/app.yaml",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/node_modules/channeladvisor/endpoints.js",
+		"/Users/russellbenton/Git Hub/portlight_staging/channel_advisor/node_modules/channeladvisor/index.js",
+		"/Users/russellbenton/Git Hub/adbs/lab/day2/conn.py",
+		"/Users/russellbenton/Git Hub/portlight_staging/searchpy/Gruntfile.coffee",
+		"/Users/russellbenton/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/russellbenton/Desktop/simpleupload.py",
+		"/Users/russellbenton/Git Hub/sms/lecture/day 4/Gruntfile.coffee",
+		"/Users/russellbenton/Git Hub/ssl/lab/day3/upload.php",
+		"/Users/russellbenton/Git Hub/ssl/lab/day3/index.php",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/bower.json",
+		"/Users/russellbenton/Git Hub/sms/lab/day3/Gruntfile.coffee",
+		"/Users/russellbenton/Desktop/sublimetext.txt",
+		"/Users/russellbenton/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/russellbenton/Downloads/Tekkit_Server_v1.2.8e/server.properties",
+		"/Users/russellbenton/Desktop/tekkit.sh",
+		"/Users/russellbenton/Downloads/Tekkit_Server_v1.2.8e/launch.bat",
+		"/Users/russellbenton/Desktop/ADB/MySQL-python-1.2.4b4/MySQLdb/connections.py"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"trim",
+			"null",
+			"\n",
+			"\n,",
+			"            ",
+			"\n                ",
+			"MANU",
+			"MANU DAS 1MA NA C9.25 D3.5",
+			"MANU DAS 1MA NA C9.25 D3.5^",
+			"/>\n	<",
+			"    ",
+			"\n            ",
+			",\n",
+			"\n            ",
+			"            ",
+			"\n                ",
+			":",
+			"!",
+			"\n                \"Value\" : \"",
+			",\n                \"Value\" : \"",
+			"\n                \"Value\" : \"LP2ATL\"",
+			"].",
+			"[",
+			"    ",
+			"\n            ",
+			"FileUpload",
+			"userParam",
+			"for"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lab/day3/sass/main.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1171,
+								1171
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 807.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lab/day3/www-root/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 141.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lab/day3/www-root/views/folders.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lab/day3/www-root/views/user.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								565,
+								565
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.321968298885,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "/Users/russellbenton/Git Hub/portlight_staging/work.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
