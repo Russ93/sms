@@ -45,7 +45,7 @@
 				<h4 ng-show="loginObj.user">{{loginObj.user.username}}</h4>
 			</li>
 			<li class="col-md-1" style="height: 50px;" ng-show="loginObj.user">
-				<img src="{{loginObj.user.thirdPartyUserData.avatar_url}}">
+				<img ng-src="{{loginObj.user.thirdPartyUserData.avatar_url}}">
 			</li>
 			<li class='col-md-1'>
 				<h4 class="col-md-1"><a href='#/' ng-click="loginObj.$logout()" ng-show="loginObj.user">Logout</a></h4>

@@ -1,11 +1,12 @@
 <div id='close' ng-click="close()" ng-show="modal">
 </div>
 <form class="modal col-md-offset-3 col-md-6" ng-submit="create()" ng-show="modal">
-    <label>New File:</label>
-    <input type-"text" class="form-control" placeholder="file.js" ng-model="newFile"/>
+    <label>Commit Message:</label>
+    <input type-"text" class="form-control" placeholder="Changed Some Stuff" ng-model="message"/>
 </form>
 <aside>
-	<button ng-show="repo" ng-click="new()" class="col-md-12">New File</button>
+	<button ng-show="repo" ng-click="new()" class="col-md-12">Save File</button>
+	<label ng-class="{ start: !repo }">Choose a Repo:</label>
 	<select class="form-control" ng-model="repo">
         <option ng-repeat="ro in repos" value="{{$index}}">{{ro.name}}</option>
     </select>
@@ -18,8 +19,9 @@
 <article class='app col-md-9'>
 	<nav class='col-md-12 files'>
 		<ul>
-			<li class="active col-md-1">App.js</li>
+			<li class="active col-md-3">{{currentFile}}</li>
+			<li class="col-md-offset-3 col-md-5">Share: http://localhost:9001/#/user/{{currentSession}}</li>
 		</ul>
 	</nav>
-	<div ui-ace="aceOption" ng-model="aceModel"></div>
+	<div ui-ace="aceOption" ng-change="update()" ng-model="aceModel"></div>
 </article>

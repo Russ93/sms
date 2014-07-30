@@ -13,7 +13,7 @@ module.exports = (grunt) ->
 				options:
 					join: true
 				files:
-					"www-root/js/app.js" : ['coffee/app.coffee', 'coffee/*.coffee']
+					"www-root/js/app.js" : ['coffee/app.coffee', 'coffee/{,*/}*.coffee']
 
 		connect:
 			server:
@@ -28,7 +28,7 @@ module.exports = (grunt) ->
 				options:
 					livereload: true
 			coffee:
-				files: "coffee/*.coffee"
+				files: "coffee/{,*/}*.coffee"
 				tasks: ["coffee"]
 				options:
 					livereload: true

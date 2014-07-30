@@ -13,52 +13,12 @@
       }).when("/user", {
         templateUrl: "views/user.html",
         controller: "UserCtrl"
+      }).when("/user/:session", {
+        templateUrl: "views/user.html",
+        controller: "UserCtrl"
       });
     }
   ]);
-
-  App.factory("AngularGit", function($resource) {
-    return $resource("https://api.github.com/repos/angular/angular.js/:category/:sha");
-  });
-
-  App.factory("GetRepos", function($resource) {
-    return $resource("https://api.github.com/users/:username/repos", null, {
-      'get': {
-        method: 'get',
-        isArray: true
-      }
-    });
-  });
-
-  App.factory("GetCommits", function($resource) {
-    return $resource("https://api.github.com/repos/:owner/:repo/commits", null, {
-      'get': {
-        method: 'get',
-        isArray: true
-      }
-    });
-  });
-
-  App.factory("GitTrees", function($resource) {
-    return $resource("https://api.github.com/repos/:owner/:repo/git/trees/:sha?recursive=1");
-  });
-
-  App.factory("GetContents", function($resource) {
-    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path", null, {
-      'get': {
-        method: 'get',
-        isArray: true
-      }
-    });
-  });
-
-  App.factory("GetFile", function($resource) {
-    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
-  });
-
-  App.factory("UpdateFile", function($resource) {
-    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
-  });
 
   App.run([
     "$firebaseSimpleLogin", "$rootScope", "$location", "GetRepos", function($firebaseSimpleLogin, $rootScope, $location, GetRepos) {
@@ -69,6 +29,11 @@
       URL = "https://vivid-fire-5420.firebaseio.com";
       conn = new Firebase(URL);
       $rootScope.loginObj = $firebaseSimpleLogin(conn);
+      $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
+        if ($location.$$path === "/") {
+          return $location.path('/user');
+        }
+      });
       return $rootScope.$on("$firebaseSimpleLogin:logout", function(e) {
         console.log("logout");
         $location.path('/');
@@ -76,24 +41,89 @@
     }
   ]);
 
-  App.filter("toArray", function() {
-    "use strict";
-    return function(obj) {
-      if (!(obj instanceof Object)) {
-        return obj;
-      }
-      return Object.keys(obj.filter(function(key) {
-        if (key.charAt(0 !== "$")) {
-          return key;
-        }
-      }).map(function(key) {
-        return Object.defineProperty(obj[key], "$key", {
-          __proto__: null,
-          value: key
+  App.controller("LandCtrl", [
+    "$scope", "$rootScope", "$firebase", "$location", function($scope, $rootScope, $firebase, $location) {
+      return $scope.title = "Home";
+    }
+  ]);
+
+  App.controller("UserCtrl", [
+    "$scope", "$rootScope", "$routeParams", "$firebase", "GetRepos", "GetContents", "GetFile", function($scope, $rootScope, $routeParams, $firebase, GetRepos, GetContents, GetFile) {
+      var editor, secret, trim;
+      $rootScope.session = $firebase(new Firebase(URL + "/sessions"));
+      if ($routeParams.session != null) {
+        $rootScope.currentSession = $routeParams.session;
+        $rootScope.location = $firebase(new Firebase(URL + "/sessions/" + $routeParams.session));
+        $rootScope.location.$on('loaded', function(value) {
+          console.log("URL", URL + value);
+          $rootScope.location = URL + value;
+          $rootScope.currentFile = $rootScope.location.replace("https://vivid-fire-5420.firebaseio.com", "");
+          $rootScope.code = $firebase(new Firebase(URL + value));
+          return $rootScope.code.$on('change', function(value) {
+            console.log($rootScope.code);
+            return $rootScope.aceModel = $rootScope.code.$value;
+          });
         });
-      }));
-    };
-  });
+      }
+      $scope.modes = ['Scheme', 'XML', 'Javascript'];
+      $scope.mode = $scope.modes[0];
+      $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
+        var params;
+        console.log(user);
+        params = {
+          username: user.username,
+          access_token: user.accessToken
+        };
+        $scope.repos = GetRepos.get(params);
+        console.log("repos", $scope.repos);
+        return console.log("params", params);
+      });
+      editor = null;
+      $scope.aceOption = {
+        mode: $scope.mode.toLowerCase(),
+        theme: 'Chrome',
+        onChange: function(something) {
+          $rootScope.code.$set(editor.getSession().getValue());
+        },
+        onLoad: function(_ace) {
+          editor = _ace;
+          return $scope.modeChanged = function() {
+            return _ace.getSession().setMode("ace/mode/" + $scope.mode.toLowerCase());
+          };
+        }
+      };
+      $scope.title = "User - loginObj.user";
+      $scope.conn = $firebase(new Firebase(URL + "/name"));
+      secret = "c2e8b102ca576e0060f6dc493956288170d6eaaa";
+      trim = function(x) {
+        return x.replace(/^\s+|\s+$/gm, '');
+      };
+      $scope["new"] = function() {
+        return $rootScope.modal = true;
+      };
+      $scope.create = function() {
+        $rootScope.modal = false;
+        $scope.conn.$child("files".$add({
+          name: $scope.newFile
+        }));
+        return console.log({
+          file: $scope.newFile
+        });
+      };
+      $scope.$watch('repo', function(newValue, oldValue) {
+        var params;
+        if ($rootScope.loginObj.user != null) {
+          params = {
+            owner: $rootScope.loginObj.user.username,
+            repo: $scope.repos[$scope.repo].name,
+            access_token: $rootScope.loginObj.user.accessToken
+          };
+          $scope.repoContents = GetContents.get(params);
+          return console.log($scope.repoContents);
+        }
+      });
+    }
+  ]);
 
   App.filter("base64", function() {
     return function(string) {
@@ -215,83 +245,6 @@
     };
   });
 
-  App.controller("LandCtrl", [
-    "$scope", "$rootScope", "$firebase", "$location", function($scope, $rootScope, $firebase, $location) {
-      return $scope.title = "Home";
-    }
-  ]);
-
-  App.controller("UserCtrl", [
-    "$scope", "$rootScope", "$firebase", "GetRepos", "GetCommits", "GetContents", "GetFile", function($scope, $rootScope, $firebase, GetRepos, GetCommits, GetContents, GetFile) {
-      var secret, trim;
-      $scope.modes = ['Scheme', 'XML', 'Javascript'];
-      $scope.mode = $scope.modes[0];
-      $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
-        var params;
-        console.log(user);
-        params = {
-          username: user.username,
-          access_token: user.accessToken
-        };
-        $scope.repos = GetRepos.get(params);
-        return console.log($scope.repos);
-      });
-      $scope.aceOption = {
-        mode: $scope.mode.toLowerCase(),
-        theme: 'monokai',
-        onLoad: function(_ace) {
-          return $scope.modeChanged = function() {
-            return _ace.getSession().setMode("ace/mode/" + $scope.mode.toLowerCase());
-          };
-        }
-      };
-      $rootScope.aceModel = "hello";
-      $scope.title = "User - loginObj.user";
-      $scope.conn = $firebase(new Firebase(URL + "/name"));
-      secret = "c2e8b102ca576e0060f6dc493956288170d6eaaa";
-      trim = function(x) {
-        return x.replace(/^\s+|\s+$/gm, '');
-      };
-      $scope["new"] = function() {
-        return $rootScope.modal = true;
-      };
-      $scope.create = function() {
-        $rootScope.modal = false;
-        $scope.conn.$child("files".$add({
-          name: $scope.newFile
-        }));
-        return console.log({
-          file: $scope.newFile
-        });
-      };
-      $scope.$watch('sha', function(newValue, oldValue) {
-        var params;
-        if ($rootScope.loginObj.user !== null) {
-          params = {
-            owner: $rootScope.loginObj.user.username,
-            repo: $scope.repos[$scope.repo].name,
-            access_token: $rootScope.loginObj.user.accessToken
-          };
-          $scope.repoContents = GetContents.get(params);
-          return console.log($scope.repoContents);
-        }
-      });
-      $scope.$watch('repo', function(newValue, oldValue) {
-        var params;
-        if ($rootScope.loginObj.user !== null) {
-          params = {
-            owner: $rootScope.loginObj.user.username,
-            repo: $scope.repos[$scope.repo].name,
-            access_token: $rootScope.loginObj.user.accessToken
-          };
-          return GetCommits.get(params, function(data) {
-            return $scope.sha = data[data.length - 1].sha;
-          });
-        }
-      });
-    }
-  ]);
-
   App.directive("folder", [
     function() {
       return {
@@ -317,6 +270,8 @@
           repo: "="
         },
         controller: function($scope, $rootScope, $firebase, GetFile, GetContents, $filter) {
+          var conn;
+          conn = $firebase(new Firebase(URL + "/" + $rootScope.loginObj.user.username));
           return $scope.openItem = function() {
             var params;
             params = {
@@ -325,10 +280,23 @@
               path: $scope.file.path,
               access_token: $rootScope.loginObj.user.accessToken
             };
+            $rootScope.location = "/" + $rootScope.loginObj.user.username + "/" + $scope.repo + "/" + $scope.file.path.replace(".", "-");
             if ($scope.file.type !== 'dir') {
               $rootScope.file = GetFile.get(params);
               return $rootScope.file.$promise.then(function() {
-                return $rootScope.aceModel = $filter('base64')($rootScope.file.content);
+                var child;
+                $rootScope.aceModel = $filter('base64')($rootScope.file.content);
+                if ($rootScope.currentSession === void 0) {
+                  $rootScope.session.$add($rootScope.location).then(function(key) {
+                    console.log(key.path.n[1]);
+                    return $rootScope.currentSession = key.path.n[1];
+                  });
+                } else {
+                  $rootScope.session[$rootScope.currentSession] = $rootScope.location;
+                  $rootScope.session.$save($rootScope.currentSession);
+                }
+                child = conn.$child("/" + $scope.repo + "/" + $scope.file.path.replace(".", "-"));
+                child.$set($rootScope.aceModel);
               });
             } else {
               params = {
@@ -350,5 +318,58 @@
       };
     }
   ]);
+
+  App.factory("AngularGit", function($resource) {
+    return $resource("https://api.github.com/repos/angular/angular.js/:category/:sha");
+  });
+
+  App.factory("GetRepos", function($resource) {
+    return $resource("https://api.github.com/users/:username/repos", null, {
+      'get': {
+        method: 'get',
+        isArray: true
+      }
+    });
+  });
+
+  App.factory("GitTrees", function($resource) {
+    return $resource("https://api.github.com/repos/:owner/:repo/git/trees/:sha?recursive=1");
+  });
+
+  App.factory("GetContents", function($resource) {
+    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path", null, {
+      'get': {
+        method: 'get',
+        isArray: true
+      }
+    });
+  });
+
+  App.factory("GetFile", function($resource) {
+    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
+  });
+
+  App.factory("UpdateFile", function($resource) {
+    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
+  });
+
+  App.filter("toArray", function() {
+    "use strict";
+    return function(obj) {
+      if (!(obj instanceof Object)) {
+        return obj;
+      }
+      return Object.keys(obj.filter(function(key) {
+        if (key.charAt(0 !== "$")) {
+          return key;
+        }
+      }).map(function(key) {
+        return Object.defineProperty(obj[key], "$key", {
+          __proto__: null,
+          value: key
+        });
+      }));
+    };
+  });
 
 }).call(this);

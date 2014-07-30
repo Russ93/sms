@@ -16,6 +16,8 @@ App.directive "file", ['$compile',($compile) ->
 		file: "="
 		repo: "="
 	controller: ($scope, $rootScope, $firebase, GetFile, GetContents, $filter) ->
+		# firebase.com/USERNAME/REPONAME/FOLDERS/FILE
+		conn = $firebase(new Firebase(URL+"/"+$rootScope.loginObj.user.username))
 		$scope.openItem = () ->
 			params =
 				owner: $rootScope.loginObj.user.username
@@ -23,10 +25,23 @@ App.directive "file", ['$compile',($compile) ->
 				path: $scope.file.path
 				access_token: $rootScope.loginObj.user.accessToken
 
+			$rootScope.location = "/"+$rootScope.loginObj.user.username+"/"+$scope.repo+"/"+($scope.file.path).replace(".", "-")
+
 			if $scope.file.type isnt 'dir'
 				$rootScope.file = GetFile.get params
 				$rootScope.file.$promise.then ->
 					$rootScope.aceModel = $filter('base64')($rootScope.file.content)
+					if $rootScope.currentSession is undefined
+						$rootScope.session.$add($rootScope.location).then (key) ->
+							console.log key.path.n[1]
+							$rootScope.currentSession = key.path.n[1]
+					else
+						$rootScope.session[$rootScope.currentSession] = $rootScope.location
+						$rootScope.session.$save($rootScope.currentSession)
+
+					child = conn.$child("/"+$scope.repo+"/"+($scope.file.path).replace(".", "-"))
+					child.$set $rootScope.aceModel
+					return
 				# $rootScope.file = $filter('base64')($rootScope.file.content)
 
 			else
