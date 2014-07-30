@@ -56,6 +56,10 @@
     return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
   });
 
+  App.factory("UpdateFile", function($resource) {
+    return $resource("https://api.github.com/repos/:owner/:repo/contents/:path");
+  });
+
   App.run([
     "$firebaseSimpleLogin", "$rootScope", "$location", "GetRepos", function($firebaseSimpleLogin, $rootScope, $location, GetRepos) {
       var conn;
