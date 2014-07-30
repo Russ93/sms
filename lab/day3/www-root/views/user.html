@@ -9,24 +9,9 @@
 	<select class="form-control" ng-model="repo">
         <option ng-repeat="ro in repos" value="{{$index}}">{{ro.name}}</option>
     </select>
-    <!--
-      [TREE attribute]
-      angular-treeview: the treeview directive
-      tree-model : the tree model on $scope.
-      node-id : each node's id
-      node-label : each node's label
-      node-children: each node's children
-    -->
-<!--     <div
-      data-angular-treeview="true"
-      data-tree-model="roleList"
-      data-node-id="roleId"
-      data-node-label="roleName"
-      data-node-children="children" >
-    </div> -->
     <ul>
-		<li ng-repeat="cont in repoContents" file="cont" repo="repos[repo].name" ng-click="openItem($event)" ng-class="{ folder: cont.type == 'dir' }">
-		
+		<li ng-repeat="cont in repoContents" file="cont" repo="repos[repo].name"  ng-class="{ folder: cont.type == 'dir' }">
+		  <ul ng-if="folder: cont.type == 'dir'" folder="cont.path" repo="repo"></ul>
 		</li>
 	</ul>
 </aside>
@@ -36,5 +21,5 @@
 			<li class="active col-md-1">App.js</li>
 		</ul>
 	</nav>
-	<div class='col-md-12' id="firepad-container">Content</div>
+	<div ui-ace="aceOption" ng-model="aceModel"></div>
 </article>

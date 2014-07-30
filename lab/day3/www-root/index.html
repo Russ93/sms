@@ -2,56 +2,57 @@
 <html lang="en" ng-app="connecting_point">
 
 <head>
-    <meta charset="utf-8">
-    <title>Docz</title>
-    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <script type="text/javascript" src="js/selectivizr.js"></script>
-    <![endif]-->
+	<meta charset="utf-8">
+	<title>Docz</title>
+	<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script type="text/javascript" src="js/selectivizr.js"></script>
+	<![endif]-->
 
-    <!-- styles -->
-    <!-- bower:js -->
-    <script src="bower/angular/angular.js"></script>
-    <script src="bower/angular-route/angular-route.js"></script>
-    <script src="bower/angular-resource/angular-resource.js"></script>
-    <script src="bower/firebase/firebase.js"></script>
-    <script src="bower/firebase-simple-login/firebase-simple-login.js"></script>
-    <script src="bower/angularfire/angularfire.js"></script>
-    <script src="bower/angular-base64/angular-base64.js"></script>
-    <!-- endbower -->
+	<!-- styles -->
+	<!-- bower:js -->
+	<script src="bower/angular/angular.js"></script>
+	<script src="bower/angular-route/angular-route.js"></script>
+	<script src="bower/angular-resource/angular-resource.js"></script>
+	<script src="bower/firebase/firebase.js"></script>
+	<script src="bower/firebase-simple-login/firebase-simple-login.js"></script>
+	<script src="bower/angularfire/angularfire.js"></script>
+	<!-- endbower -->
 
-    <!--    JS    -->
-    <!-- <script src="js/angular-treeview.js"></script> -->
-    <script src="js/app.js"></script>
-    <script src="//localhost:35729/livereload.js"></script>
+	<!--    JS    -->
+	<!-- <script src="js/angular-treeview.js"></script> -->
+	<script src="https://rawgithub.com/ajaxorg/ace-builds/v1.1.1/src-min-noconflict/ace.js"></script>
+	<script src="js/ui-ace.js"></script>
+	<script src="js/app.js"></script>
+	<script src="//localhost:35729/livereload.js"></script>
 
-    <!--    CSS    -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Montserrat' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+	<!--    CSS    -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300|Montserrat' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body>
-    <nav class='col-sm-12'>
-        <ul>
-            <li class='col-md-4'>
-                <img class="col-md-offset-1 col-md-2" src="imgs/logo.png" />
-                <h4 class='col-md-8'>Connection Point</h4>
-            </li>
-            <li class="col-md-offset-5 col-md-1">
-                <h4 ng-show="loginObj.user">{{loginObj.user.username}}</h4>
-            </li>
-            <li class="col-md-1" style="height: 50px;" ng-show="loginObj.user">
-                <img src="{{loginObj.user.thirdPartyUserData.avatar_url}}">
-            </li>
-            <li class='col-md-1'>
-                <h4 class="col-md-1"><a href='#/' ng-click="loginObj.$logout()" ng-show="loginObj.user">Logout</a></h4>
-            </li>
-        </ul>
-    </nav>
-    <section ng-view></seciton>
+	<nav class='col-sm-12'>
+		<ul>
+			<li class='col-md-4'>
+				<img class="col-md-offset-1 col-md-2" src="imgs/logo.png" />
+				<h4 class='col-md-8'>Connection Point</h4>
+			</li>
+			<li class="col-md-offset-5 col-md-1">
+				<h4 ng-show="loginObj.user">{{loginObj.user.username}}</h4>
+			</li>
+			<li class="col-md-1" style="height: 50px;" ng-show="loginObj.user">
+				<img src="{{loginObj.user.thirdPartyUserData.avatar_url}}">
+			</li>
+			<li class='col-md-1'>
+				<h4 class="col-md-1"><a href='#/' ng-click="loginObj.$logout()" ng-show="loginObj.user">Logout</a></h4>
+			</li>
+		</ul>
+	</nav>
+	<section ng-view></seciton>
 </body>
 
 </html>
